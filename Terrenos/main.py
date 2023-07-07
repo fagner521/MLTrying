@@ -1,9 +1,11 @@
 import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
+import os
 
-x = pd.read_csv("C:\\Users\\Pichau\\Documents\\MLTrying\\Terrenos\\TraningSets\\itens.csv").values
-y = pd.read_csv("C:\\Users\\Pichau\\Documents\\MLTrying\\Terrenos\\TraningSets\\price.csv").values
+
+x = pd.read_csv(f"{os.getcwd()}\\TraningSets\\itens.csv").values
+y = pd.read_csv(f"{os.getcwd()}\\TraningSets\\price.csv").values
 
 def define_function(x, y, w, b):
     m = len(x)
