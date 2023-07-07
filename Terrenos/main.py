@@ -22,15 +22,24 @@ def define_function(x, y, w, b):
 w = 1.0
 b = 0
 y_cap, j_wb = define_function(x, y, w, b)
-old_j_wb = j_wb
+old_j_w = j_wb
+old_j_wb = 0
 while True:
-    y_cap, j_wb = define_function(x, y, w, b)
-    if j_wb > old_j_wb:
+    while True:
+        y_cap, j_wb = define_function(x, y, w, b)
+        if j_wb > old_j_w:
+            old_j_w = j_wb
+            break
+        else:
+            w += 0.1
+            old_j_w = j_wb
+    if old_j_w > old_j_wb:
         break
     else:
-        w += 0.001
-        old_j_wb = j_wb
-print(w ,j_wb)
+        b += 0.1
+        old_j_wb = old_j_w
+
+print(w,b,j_wb)
 
 #plt.plot(range(0, 9), (y_cap - y)**2)
 plt.plot(x, y_cap)
