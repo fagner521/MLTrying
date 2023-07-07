@@ -33,7 +33,7 @@ while True:
         else:
             w += 0.1
             old_j_w = j_wb
-    if old_j_w > old_j_wb:
+    if j_wb > old_j_wb:
         break
     else:
         b += 0.1
