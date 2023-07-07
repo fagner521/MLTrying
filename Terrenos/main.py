@@ -23,7 +23,7 @@ w = 1.0
 b = 0
 y_cap, j_wb = define_function(x, y, w, b)
 old_j_w = j_wb
-old_j_wb = 0
+old_j_wb = j_wb
 while True:
     while True:
         y_cap, j_wb = define_function(x, y, w, b)
@@ -36,8 +36,11 @@ while True:
     if j_wb > old_j_wb:
         break
     else:
+        w = 1
         b += 0.1
         old_j_wb = old_j_w
+        y_cap, j_wb = define_function(x, y, w, b)
+        old_j_w = j_wb
 
 print(w,b,j_wb)
 
